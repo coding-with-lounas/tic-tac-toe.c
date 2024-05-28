@@ -18,6 +18,10 @@ void printWinner(char);
 
 int main(){
    char winner= ' ';
+   char response;
+do{
+   winner= ' ';
+   response=' ';
    resetBoard();
 
     while (winner == ' ' && checkFreeSpaces() != 0)
@@ -25,23 +29,28 @@ int main(){
     printboard();
     playerMove();
     winner=checkWinner();
-     if (winner !=' '|| checkFreeSpaces () == 0){
+     if (winner != ' ' || checkFreeSpaces () == 0){
       break;
      }
 
-   computerMove();
-    winner=checkWinner();
-     if (winner !=' '|| checkFreeSpaces () == 0){
+     computerMove();
+     winner=checkWinner();
+     if (winner != ' ' || checkFreeSpaces () == 0){
       break;
      }
-     
     }
     printboard();
     printWinner(winner);
+    printf("\n Would u like play again (Y/N):");
+    scanf("%c");  //for read to consume the leftover '\n'
+    scanf("%c",&response);
+    response=toupper(response);
+ }while (response == 'Y');
+ 
+ printf("\n Thanks for the playing my game <3");
     
     return 0;
 }
-
 void resetBoard(){
  for (int i = 0; i < 3; i++)
  {
