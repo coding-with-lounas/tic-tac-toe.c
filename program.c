@@ -87,6 +87,7 @@ do{
  }
  else{
    Board[x][y]= PLAYER;
+    break;
  }
 } while (Board[x][y] !=' ');
 
